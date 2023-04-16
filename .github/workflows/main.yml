@@ -33,12 +33,9 @@ jobs:
   notification:
     needs: deploy
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
 
     steps:
-      - uses: sarisia/actions-status-discord@v1
+      uses: sarisia/actions-status-discord@v1
       if: always()
       with:
         webhook: ${{ secrets.DISCORD_WEBHOOK }}
