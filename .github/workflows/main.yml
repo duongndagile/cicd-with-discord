@@ -31,9 +31,14 @@ jobs:
     - run: yarn run build
 
   notification:
-    needs: build-job
+    needs: deploy
     runs-on: ubuntu-latest
-    - uses: sarisia/actions-status-discord@v1
-    if: always()
-    with:
-      webhook: ${{ secrets.DISCORD_WEBHOOK }}
+    permissions:
+      packages: write
+      contents: read
+      
+    step:
+      - uses: sarisia/actions-status-discord@v1
+      if: always()
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
