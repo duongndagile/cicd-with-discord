@@ -29,3 +29,14 @@ jobs:
     - run: npm i -g yarn
     - run: yarn install
     - run: yarn run build
+
+discord-message:
+  needs: build-job
+  runs-on: ubuntu-latest
+  steps:
+    - name: Discord notification
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
