@@ -33,10 +33,10 @@ jobs:
   notification:
     needs: deploy
     runs-on: ubuntu-latest
-
     steps:
       - name: discord-notification
-      env: DISCORD_WEBHOOKS: ${{ secrets: WEBHOOK_URL }}
+      env: 
+        DISCORD_WEBHOOKS: ${{ secrets: WEBHOOK_URL }}
       uses: sarisia/actions-status-discord@v1
       if: always()
       with:
