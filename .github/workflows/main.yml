@@ -36,8 +36,8 @@ jobs:
     permissions:
       packages: write
       contents: read
-      
-    step:
+
+    steps:
       - uses: sarisia/actions-status-discord@v1
       if: always()
       with:
