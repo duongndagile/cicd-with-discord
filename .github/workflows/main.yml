@@ -37,7 +37,7 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBED: ${{ toJson({
+          DISCORD_EMBED: ${{
             "username": "Webhook",
             "avatar_url": "https://i.imgur.com/4M34hi2.png",
             "content": "Text message. Up to 2000 characters.",
@@ -83,7 +83,6 @@ jobs:
                   "icon_url": "https://i.imgur.com/fKL31aD.jpg"
                 }
               }
-            ]
-          })        
+            ] 
         }}
         uses: Ilshidur/action-discord@master
